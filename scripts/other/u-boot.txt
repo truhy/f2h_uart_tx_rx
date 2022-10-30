@@ -1,0 +1,9 @@
+# Load and program the FPGA .rbf file then enable bridges
+fatload mmc 0:1 ${loadaddr} soc_system.rbf
+fpga load 0 ${loadaddr} ${filesize}
+bridge enable
+
+# Load baremetal program to loop and do nothing
+fatload mmc 0:1 0x00100040 infinite_loop.bin
+go 0x001000b5
+
