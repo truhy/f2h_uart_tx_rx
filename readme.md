@@ -55,8 +55,3 @@ Amend it with this guide to boot FPGA .rbf file from a U-Boot script:<br />
 https://github.com/zangman/de10-nano/wiki/Creating-a-Bootscript
 
 Alternatively use my bash shell scripts and patch files located in the scripts folder
-
-## For more info and other projects
-
-Visit my personal website for a little more info at:<br />
-https://trueapps.co.uk/F2hUart
