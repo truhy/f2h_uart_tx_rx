@@ -2,7 +2,7 @@
 
 ## Overview
 
-This contains a Quartus Prime Verilog HDL project that demonstrates the FPGA portion directly sending and receiving a serial message using the on-board UART-USB which is wired to the HPS side on the DE10-Nano board.  It does so by accessing the HPS UART0 controller (hard-IP) over the FPGA-to-HPS bridge.  This relies on the sdcard with U-Boot to enable the FPGA-to_HPS bridge and configure the serial port during its boot up.
+This contains a Quartus Prime Verilog HDL project that demonstrates the FPGA portion directly sending and receiving a serial message using the on-board UART-USB which is wired to the HPS side on the DE10-Nano board.  It does so by accessing the HPS UART0 controller (hard-IP) over the FPGA-to-HPS bridge.  This relies on the sdcard with U-Boot to enable the FPGA-to-HPS bridge and configure the serial port during its boot up.
 
 ## Running instructions
 
@@ -17,7 +17,7 @@ This contains a Quartus Prime Verilog HDL project that demonstrates the FPGA por
 6. Press and release key0 on the DE10-Nano and you should see a hello message - this comes directly from the FPGA side!
 7. In the serial console program, press a number between 0 to 7 to toggle LEDs
 
-Note, I've configured U-Boot so it doesn't boot to a Linux system or a user baremetal application.
+Note, I've configured U-Boot to boot only to it's command console.
 
 ## Main files
 
@@ -36,8 +36,7 @@ Note, I've configured U-Boot so it doesn't boot to a Linux system or a user bare
 ## The SD card image is built using the following software versions
 
 - [Ubuntu 22.04.1 LTS 64bit](https://ubuntu.com/download/desktop)
-- [Quartus Prime 21.1 Lite Edition for Linux](https://www.intel.co.uk/content/www/uk/en/software/programmable/quartus-prime/download.html)
-- [Quartus SoC EDS 20.1 for Linux](https://fpgasoftware.intel.com/soceds)
+- [Quartus Prime 22.1 Lite Edition for Linux](https://www.intel.co.uk/content/www/uk/en/software/programmable/quartus-prime/download.html)
 - [U-Boot source, tag v2022.10](https://github.com/u-boot/u-boot/tree/v2022.10)
 - [GNU Arm Embedded Toolchain 10.3-2021.07 for Linux x86 64](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads)
 
@@ -55,3 +54,4 @@ Amend it with this guide to boot FPGA .rbf file from a U-Boot script:<br />
 https://github.com/zangman/de10-nano/wiki/Creating-a-Bootscript
 
 Alternatively use my bash shell scripts and patch files located in the scripts folder
+

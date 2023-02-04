@@ -6,4 +6,3 @@ bridge enable
 # Load baremetal program to loop and do nothing
 fatload mmc 0:1 0x00100040 infinite_loop.bin
 go 0x001000b5
-
