@@ -1,6 +1,7 @@
 	component soc_system is
 		port (
 			clk_clk                         : in    std_logic                     := 'X';             -- clk
+			clock_bridge_0_out_clk_clk      : out   std_logic;                                        -- clk
 			hps_0_f2h_axi_slave_awid        : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- awid
 			hps_0_f2h_axi_slave_awaddr      : in    std_logic_vector(31 downto 0) := (others => 'X'); -- awaddr
 			hps_0_f2h_axi_slave_awlen       : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- awlen
@@ -82,6 +83,11 @@
 			hps_io_hps_io_i2c0_inst_SCL     : inout std_logic                     := 'X';             -- hps_io_i2c0_inst_SCL
 			hps_io_hps_io_i2c1_inst_SDA     : inout std_logic                     := 'X';             -- hps_io_i2c1_inst_SDA
 			hps_io_hps_io_i2c1_inst_SCL     : inout std_logic                     := 'X';             -- hps_io_i2c1_inst_SCL
+			hps_io_hps_io_gpio_inst_GPIO09  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO09
+			hps_io_hps_io_gpio_inst_GPIO35  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO35
+			hps_io_hps_io_gpio_inst_GPIO53  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
+			hps_io_hps_io_gpio_inst_GPIO54  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO54
+			hps_io_hps_io_gpio_inst_GPIO61  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
 			memory_mem_a                    : out   std_logic_vector(14 downto 0);                    -- mem_a
 			memory_mem_ba                   : out   std_logic_vector(2 downto 0);                     -- mem_ba
 			memory_mem_ck                   : out   std_logic;                                        -- mem_ck
@@ -99,14 +105,14 @@
 			memory_mem_dm                   : out   std_logic_vector(3 downto 0);                     -- mem_dm
 			memory_oct_rzqin                : in    std_logic                     := 'X';             -- oct_rzqin
 			pll_0_locked_export             : out   std_logic;                                        -- export
-			reset_reset_n                   : in    std_logic                     := 'X';             -- reset_n
-			clock_bridge_0_out_clk_clk      : out   std_logic                                         -- clk
+			reset_reset_n                   : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component soc_system;
 
 	u0 : component soc_system
 		port map (
 			clk_clk                         => CONNECTED_TO_clk_clk,                         --                    clk.clk
+			clock_bridge_0_out_clk_clk      => CONNECTED_TO_clock_bridge_0_out_clk_clk,      -- clock_bridge_0_out_clk.clk
 			hps_0_f2h_axi_slave_awid        => CONNECTED_TO_hps_0_f2h_axi_slave_awid,        --    hps_0_f2h_axi_slave.awid
 			hps_0_f2h_axi_slave_awaddr      => CONNECTED_TO_hps_0_f2h_axi_slave_awaddr,      --                       .awaddr
 			hps_0_f2h_axi_slave_awlen       => CONNECTED_TO_hps_0_f2h_axi_slave_awlen,       --                       .awlen
@@ -188,6 +194,11 @@
 			hps_io_hps_io_i2c0_inst_SCL     => CONNECTED_TO_hps_io_hps_io_i2c0_inst_SCL,     --                       .hps_io_i2c0_inst_SCL
 			hps_io_hps_io_i2c1_inst_SDA     => CONNECTED_TO_hps_io_hps_io_i2c1_inst_SDA,     --                       .hps_io_i2c1_inst_SDA
 			hps_io_hps_io_i2c1_inst_SCL     => CONNECTED_TO_hps_io_hps_io_i2c1_inst_SCL,     --                       .hps_io_i2c1_inst_SCL
+			hps_io_hps_io_gpio_inst_GPIO09  => CONNECTED_TO_hps_io_hps_io_gpio_inst_GPIO09,  --                       .hps_io_gpio_inst_GPIO09
+			hps_io_hps_io_gpio_inst_GPIO35  => CONNECTED_TO_hps_io_hps_io_gpio_inst_GPIO35,  --                       .hps_io_gpio_inst_GPIO35
+			hps_io_hps_io_gpio_inst_GPIO53  => CONNECTED_TO_hps_io_hps_io_gpio_inst_GPIO53,  --                       .hps_io_gpio_inst_GPIO53
+			hps_io_hps_io_gpio_inst_GPIO54  => CONNECTED_TO_hps_io_hps_io_gpio_inst_GPIO54,  --                       .hps_io_gpio_inst_GPIO54
+			hps_io_hps_io_gpio_inst_GPIO61  => CONNECTED_TO_hps_io_hps_io_gpio_inst_GPIO61,  --                       .hps_io_gpio_inst_GPIO61
 			memory_mem_a                    => CONNECTED_TO_memory_mem_a,                    --                 memory.mem_a
 			memory_mem_ba                   => CONNECTED_TO_memory_mem_ba,                   --                       .mem_ba
 			memory_mem_ck                   => CONNECTED_TO_memory_mem_ck,                   --                       .mem_ck
@@ -205,7 +216,6 @@
 			memory_mem_dm                   => CONNECTED_TO_memory_mem_dm,                   --                       .mem_dm
 			memory_oct_rzqin                => CONNECTED_TO_memory_oct_rzqin,                --                       .oct_rzqin
 			pll_0_locked_export             => CONNECTED_TO_pll_0_locked_export,             --           pll_0_locked.export
-			reset_reset_n                   => CONNECTED_TO_reset_reset_n,                   --                  reset.reset_n
-			clock_bridge_0_out_clk_clk      => CONNECTED_TO_clock_bridge_0_out_clk_clk       -- clock_bridge_0_out_clk.clk
+			reset_reset_n                   => CONNECTED_TO_reset_reset_n                    --                  reset.reset_n
 		);
 

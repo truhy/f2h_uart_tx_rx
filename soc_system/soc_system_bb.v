@@ -1,6 +1,7 @@
 
 module soc_system (
 	clk_clk,
+	clock_bridge_0_out_clk_clk,
 	hps_0_f2h_axi_slave_awid,
 	hps_0_f2h_axi_slave_awaddr,
 	hps_0_f2h_axi_slave_awlen,
@@ -82,6 +83,11 @@ module soc_system (
 	hps_io_hps_io_i2c0_inst_SCL,
 	hps_io_hps_io_i2c1_inst_SDA,
 	hps_io_hps_io_i2c1_inst_SCL,
+	hps_io_hps_io_gpio_inst_GPIO09,
+	hps_io_hps_io_gpio_inst_GPIO35,
+	hps_io_hps_io_gpio_inst_GPIO53,
+	hps_io_hps_io_gpio_inst_GPIO54,
+	hps_io_hps_io_gpio_inst_GPIO61,
 	memory_mem_a,
 	memory_mem_ba,
 	memory_mem_ck,
@@ -99,10 +105,10 @@ module soc_system (
 	memory_mem_dm,
 	memory_oct_rzqin,
 	pll_0_locked_export,
-	reset_reset_n,
-	clock_bridge_0_out_clk_clk);	
+	reset_reset_n);	
 
 	input		clk_clk;
+	output		clock_bridge_0_out_clk_clk;
 	input	[7:0]	hps_0_f2h_axi_slave_awid;
 	input	[31:0]	hps_0_f2h_axi_slave_awaddr;
 	input	[3:0]	hps_0_f2h_axi_slave_awlen;
@@ -184,6 +190,11 @@ module soc_system (
 	inout		hps_io_hps_io_i2c0_inst_SCL;
 	inout		hps_io_hps_io_i2c1_inst_SDA;
 	inout		hps_io_hps_io_i2c1_inst_SCL;
+	inout		hps_io_hps_io_gpio_inst_GPIO09;
+	inout		hps_io_hps_io_gpio_inst_GPIO35;
+	inout		hps_io_hps_io_gpio_inst_GPIO53;
+	inout		hps_io_hps_io_gpio_inst_GPIO54;
+	inout		hps_io_hps_io_gpio_inst_GPIO61;
 	output	[14:0]	memory_mem_a;
 	output	[2:0]	memory_mem_ba;
 	output		memory_mem_ck;
@@ -202,5 +213,4 @@ module soc_system (
 	input		memory_oct_rzqin;
 	output		pll_0_locked_export;
 	input		reset_reset_n;
-	output		clock_bridge_0_out_clk_clk;
 endmodule

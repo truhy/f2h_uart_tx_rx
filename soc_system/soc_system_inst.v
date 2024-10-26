@@ -1,5 +1,6 @@
 	soc_system u0 (
 		.clk_clk                         (<connected-to-clk_clk>),                         //                    clk.clk
+		.clock_bridge_0_out_clk_clk      (<connected-to-clock_bridge_0_out_clk_clk>),      // clock_bridge_0_out_clk.clk
 		.hps_0_f2h_axi_slave_awid        (<connected-to-hps_0_f2h_axi_slave_awid>),        //    hps_0_f2h_axi_slave.awid
 		.hps_0_f2h_axi_slave_awaddr      (<connected-to-hps_0_f2h_axi_slave_awaddr>),      //                       .awaddr
 		.hps_0_f2h_axi_slave_awlen       (<connected-to-hps_0_f2h_axi_slave_awlen>),       //                       .awlen
@@ -81,6 +82,11 @@
 		.hps_io_hps_io_i2c0_inst_SCL     (<connected-to-hps_io_hps_io_i2c0_inst_SCL>),     //                       .hps_io_i2c0_inst_SCL
 		.hps_io_hps_io_i2c1_inst_SDA     (<connected-to-hps_io_hps_io_i2c1_inst_SDA>),     //                       .hps_io_i2c1_inst_SDA
 		.hps_io_hps_io_i2c1_inst_SCL     (<connected-to-hps_io_hps_io_i2c1_inst_SCL>),     //                       .hps_io_i2c1_inst_SCL
+		.hps_io_hps_io_gpio_inst_GPIO09  (<connected-to-hps_io_hps_io_gpio_inst_GPIO09>),  //                       .hps_io_gpio_inst_GPIO09
+		.hps_io_hps_io_gpio_inst_GPIO35  (<connected-to-hps_io_hps_io_gpio_inst_GPIO35>),  //                       .hps_io_gpio_inst_GPIO35
+		.hps_io_hps_io_gpio_inst_GPIO53  (<connected-to-hps_io_hps_io_gpio_inst_GPIO53>),  //                       .hps_io_gpio_inst_GPIO53
+		.hps_io_hps_io_gpio_inst_GPIO54  (<connected-to-hps_io_hps_io_gpio_inst_GPIO54>),  //                       .hps_io_gpio_inst_GPIO54
+		.hps_io_hps_io_gpio_inst_GPIO61  (<connected-to-hps_io_hps_io_gpio_inst_GPIO61>),  //                       .hps_io_gpio_inst_GPIO61
 		.memory_mem_a                    (<connected-to-memory_mem_a>),                    //                 memory.mem_a
 		.memory_mem_ba                   (<connected-to-memory_mem_ba>),                   //                       .mem_ba
 		.memory_mem_ck                   (<connected-to-memory_mem_ck>),                   //                       .mem_ck
@@ -98,7 +104,6 @@
 		.memory_mem_dm                   (<connected-to-memory_mem_dm>),                   //                       .mem_dm
 		.memory_oct_rzqin                (<connected-to-memory_oct_rzqin>),                //                       .oct_rzqin
 		.pll_0_locked_export             (<connected-to-pll_0_locked_export>),             //           pll_0_locked.export
-		.reset_reset_n                   (<connected-to-reset_reset_n>),                   //                  reset.reset_n
-		.clock_bridge_0_out_clk_clk      (<connected-to-clock_bridge_0_out_clk_clk>)       // clock_bridge_0_out_clk.clk
+		.reset_reset_n                   (<connected-to-reset_reset_n>)                    //                  reset.reset_n
 	);
 
